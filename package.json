@@ -1,0 +1,27 @@
+{
+  "name": "project5",
+  "version": "1.0.0",
+  "description": "My final General Assembly project app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && yarn && yarn build"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SauraPG72/Project5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SauraPG72/Project5/issues"
+  },
+  "homepage": "https://github.com/SauraPG72/Project5#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "pg": "^8.7.3"
+  }
+}

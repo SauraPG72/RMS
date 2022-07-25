@@ -4,14 +4,14 @@ const pg = require('pg')
 const port = process.env.PORT || 3001;
 const app = express();
 
-
+app.use(express.json())
 
 app.get('/api', (req, res) => {
-  res.send('hello')
+  res.send({success: 'hello'})
 });
 
 app.listen(port, () => {
-  console.log(`server listening on port: ${port}`)
+  console.log(`http://localhost:${port}`)
 });
 
 let db;

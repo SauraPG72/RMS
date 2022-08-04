@@ -8,6 +8,8 @@ require("dotenv").config();
 const pgSession = require('connect-pg-simple')(expressSession);
 const axios = require("axios");
 
+app.use(express.static('./client/build'))
+
 
 app.use(express.json());
 

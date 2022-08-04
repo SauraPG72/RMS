@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 
 export const LogInForm = () => {
     
-    const submit = () => {
+    const submit = (event) => {
+        event.preventDeafult();
         const form = document.getElementsByName("form")
         const formData = new FormData(form);
         const data = {

@@ -1,8 +1,0 @@
-pg
-express
-axios
-bcryt
-dotenv
-express-session
-fs
-connect-pg-simple

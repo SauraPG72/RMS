@@ -12,7 +12,7 @@ function isValidPassword(plainTextPassword, passwordHash) {
 
 router.get('/', (req, res) => {
     res.json(req.session)
-});
+})
 
 router.delete("/", (req, res) => {
     req.session.destroy();
@@ -21,9 +21,16 @@ router.delete("/", (req, res) => {
 
 
 router.post('/login', (req, res) => {
-    const { email, pw } = req.body;
+    const email = req.body.email;
+    const pw = req.body.pw
+
+    
+
 
     db.query("SELECT * from users where email = $1", [email]).then((dbResult) => {
+        
+
+        
         
         if(email.toLowerCase() == dbResult.rows[0].email) {
             if (isValidPassword(pw, dbResult.rows[0].password_hash)) {
@@ -38,7 +45,7 @@ router.post('/login', (req, res) => {
                 req.session.logged_in = true;
 
 
-                res.json({success: true})
+                res.json(req.session)
             }
             else {
                 res.status(400).json({ message: "Login failed, missing PW" });
@@ -49,7 +56,9 @@ router.post('/login', (req, res) => {
         }
       
         
-    })
+    }).catch((err) => {
+        res.status(400).json({ message: "Login failed" });
+      });
 
     
 

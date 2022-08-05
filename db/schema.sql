@@ -29,7 +29,7 @@ CREATE TABLE contacts(
     type VARCHAR(255),
     relationship VARCHAR(255),
     most_recent_thread_ids VARCHAR(50)[5],
-    email VARCHAR (50) UNIQUE
+    email VARCHAR UNIQUE
 );
 
 CREATE TABLE types(

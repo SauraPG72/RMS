@@ -212,8 +212,15 @@ router.get("/update", (req, res) => {
 
                        if (!orgsNameArr.includes(objOfContacts[email.email].company) && !contactNamesArr.includes(objOfContacts[email.email].name))              
                         {
-                            let newContactWithNewOrg = db.query("INSERT INTO organisations (org_name, user_id) VALUES ($1, $2) RETURNING org_id", [objOfContacts[email.email].company, req.session.user_id])
-                            .then(result => result.rows[0].org_id)
+                            let newContactWithNewOrg = db.query("INSERT INTO organisations (org_name, user_id) VALUES ($1, $2) ON CONFLICT (org_name) DO NOTHING RETURNING org_id", [objOfContacts[email.email].company, req.session.user_id])
+                            .then(result => {
+                                if (result.rows[0].org_id) {
+                                    return result.rows[0].org_id
+                                }
+                                else {
+                                    console.log("org_id doesn't exist")
+                                }
+                            })                                
                             .then((orgId) => { 
                                 return {...objOfContacts[email.email],  org_id: orgId }
                             })
@@ -225,11 +232,9 @@ router.get("/update", (req, res) => {
 
                        else {
 
-                            
-
                             let newContactsWithOldOrg = db.query("SELECT * FROM organisations WHERE org_name = $1 AND user_id = $2", [objOfContacts[email.email].company, req.session.user_id]).then((result) => { 
 
-                                
+                                console.log(result.rows[0])
 
                                 return result.rows[0].org_id;
                     
@@ -240,7 +245,7 @@ router.get("/update", (req, res) => {
                             })
 
                             newContactsWithExistingOrgs.push(newContactsWithOldOrg)
-                       }
+                        }
     
                     }
                     

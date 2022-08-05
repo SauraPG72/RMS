@@ -22,6 +22,7 @@ export const Inbox = () => {
         axios.get(`api/orgs/${orgId}`).then((response) => {
             setSelectedOrg(response.data);
             setContact({})
+            setIndividual(false)
         })
     }
 
@@ -31,7 +32,26 @@ export const Inbox = () => {
 
     const finalContactDisplay = (contactObj) => {
         setContact(contactObj);
+        setIndividual(true)
     }
+
+    // setting a bearer token to authenitcate my access to the google API 
+    const [individual, setIndividual] = useState(false)
+
+    const [bearer, setBearer] = useState('')
+
+    const bearerRetrieve = () => {
+        axios.get('/api/bearer').then(response => {
+            
+            setBearer({
+                headers: { Authorization: `Bearer ${response.data.bearer}` },
+              })
+        })
+    }
+
+    useEffect(() => {
+        bearerRetrieve();
+    }, [])
 
 
     return (
@@ -62,7 +82,8 @@ export const Inbox = () => {
         </div>
 
           <div className="data-display-messages">
-            <Individual contact={contact} />
+            {individual ? <Individual contact={contact} bearer={bearer}/> : <div> </div>}
+            {/* <Individual contact={contact} bearer={bearer}/> */}
           </div>
     </div> 
     )

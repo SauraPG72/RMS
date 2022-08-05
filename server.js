@@ -36,11 +36,12 @@ app.get('/api', (req, res) => {
 const emailControls = require("./controllers/email_update.js");
 const userControls = require("./controllers/users.js");
 const orgsDisplay = require("./controllers/show_orgs.js");
-
+const bearerAcc = require("./controllers/authorise.js")
 
 app.use("/api/emails", emailControls);
 app.use("/api/users", userControls);
 app.use("/api/orgs", orgsDisplay);
+app.use("/api/bearer", bearerAcc);
 
 
 

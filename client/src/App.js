@@ -65,23 +65,47 @@ function App() {
   }
 
 
-  useEffect(() => {
-    checkLogIn()
-  }, [])
 
 
 
   if(logIn.loggedIn) {
 
-    
-
-
-
     return (
     <div className="App">
-      <Test />
+      <div className='header'>
+          <Test />
+      </div>
+      
+      <div className='body-container'>
+          <div className="column-head-one">
+            Companies
+          </div>
+
+              <div className='data-display-company'>
+                  <DisplayOrgsMap />
+              </div>
+
+          <div className="column-head-two">
+            Contacts
+          </div>
+
+              <div className="data-display-contacts">
+                
+              </div>
+
+
+          <div className="column-head-three">
+            Messages
+          </div>
+
+            <div className="data-display-messages">
+              
+            </div>
+
         
-      <DisplayOrgsMap />
+        
+      </div> 
+      
     </div>
     );
   }
@@ -96,7 +120,7 @@ function App() {
     )
   }
   
-  
+
 }
 
 export default App;

@@ -6,15 +6,15 @@ export const Test = () => {
     const [data, setData] = useState('');
 
     useEffect(() => {
-        axios.get('/api').then((response) => {
+        axios.get('/api/users').then((response) => {
             console.log(response)
-            setData(response.data.success)
+            setData(response.data.username)
             
         })
     }, [])
     return (
         <div>
-            <p>{data}</p>
+            <p>Welcome back {data}!</p>
         </div>
     )
 }

@@ -4,12 +4,13 @@ import axios from 'axios';
 
 import { useState, useEffect } from 'react';
 
-import { Test } from './modules/testComp.js';
+import { Header } from './modules/Header.js';
 
 import { DisplayOrgsMap } from './modules/display_orgs.js'
 
 import { LogInForm } from './modules/LogIn';
 
+import { Inbox } from './modules/DisplayInbox';
 
 
 function App() {
@@ -73,38 +74,12 @@ function App() {
     return (
     <div className="App">
       <div className='header'>
-          <Test />
+          <Header />
       </div>
+
+      <Inbox />
       
-      <div className='body-container'>
-          <div className="column-head-one">
-            Companies
-          </div>
 
-              <div className='data-display-company'>
-                  <DisplayOrgsMap />
-              </div>
-
-          <div className="column-head-two">
-            Contacts
-          </div>
-
-              <div className="data-display-contacts">
-                
-              </div>
-
-
-          <div className="column-head-three">
-            Messages
-          </div>
-
-            <div className="data-display-messages">
-              
-            </div>
-
-        
-        
-      </div> 
       
     </div>
     );

@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 
-export const Test = () => {
+export const Header = () => {
     const [data, setData] = useState('');
 
     useEffect(() => {

@@ -38,3 +38,7 @@
 .data-display-messages {
   grid-area: data-display-messages;
 }
+
+.orgCard {
+  color: blue;
+}

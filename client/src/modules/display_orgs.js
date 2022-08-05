@@ -1,25 +1,10 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios';
+import '../App.css'
 
-export const DisplayOrgsMap = () => {
-    const [data, setData] = useState([])
-    useEffect(() => {
-        axios.get("/api/orgs").then((response) => {
-            setData(response.data[0])
-            
-            
-        })
-    }, [])
-    console.log(data)
-    return (
-       data.map((org, idx) => {
-        return <OrgCard orgName={org.org_name} key={idx}/>
-       })
-    )
-}
+export const OrgCard = (props) => {
 
-const OrgCard = (props) => {
-    return <div>
+    return <div className="orgCard" onClick={props.orgContactDisplay}>
         {props.orgName}
     </div>
 }

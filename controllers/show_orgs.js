@@ -10,4 +10,12 @@ router.get("/", (req, res) => {
     )
 })
 
+
+router.get("/:org_name", (req, res) => {
+    db.query("SELECT * from contacts WHERE org_name=$1", [req.params.org_name]).then((response) => {
+        
+        res.json(response.rows)
+    })
+})
+
 module.exports = router

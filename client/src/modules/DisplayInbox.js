@@ -2,6 +2,7 @@ import { OrgCard } from "./display_orgs";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { ClickAbleContacts } from "./display_contacts";
+import { Individual } from "./display_individual";
 
 export const Inbox = () => {
     // first request to database to make sure we can display the right organisations 
@@ -20,11 +21,16 @@ export const Inbox = () => {
     const orgContactDisplay = (orgId) => {
         axios.get(`api/orgs/${orgId}`).then((response) => {
             setSelectedOrg(response.data);
+            setContact({})
         })
     }
 
-    const finalContactDisplay = (contactId) => {
-        
+    // now for displaying the relevant contacts for the deal!
+    const [contact, setContact] = useState({})
+
+
+    const finalContactDisplay = (contactObj) => {
+        setContact(contactObj);
     }
 
 
@@ -46,7 +52,7 @@ export const Inbox = () => {
 
             <div className="data-display-contacts">
               {selectedOrg.map((organisation, idx) => {
-                return <ClickAbleContacts organisation={organisation} key={idx}/>
+                return <ClickAbleContacts organisation={organisation} key={idx} finalContactDisplay={()=>finalContactDisplay(organisation)}/>
               })}
             </div>
 
@@ -56,7 +62,7 @@ export const Inbox = () => {
         </div>
 
           <div className="data-display-messages">
-            
+            <Individual contact={contact} />
           </div>
     </div> 
     )

@@ -7,7 +7,7 @@ import { OrgCard } from './display_orgs';
 
 export const ClickAbleContacts = (props) => {
     
-    return <div>
+    return <div onClick={props.finalContactDisplay}>
         {props.organisation.name}
     </div>
 }

@@ -57,7 +57,7 @@ export const Inbox = () => {
     return (
         <div className='body-container'>
         <div className="column-head-one">
-          Companies
+          Companies 🏰
         </div>
 
             <div className='data-display-company'>
@@ -67,7 +67,7 @@ export const Inbox = () => {
             </div>
 
         <div className="column-head-two">
-          Contacts
+          Contacts  👨‍👩‍👦
         </div>
 
             <div className="data-display-contacts">
@@ -78,7 +78,7 @@ export const Inbox = () => {
 
 
         <div className="column-head-three">
-          Messages
+          Messages 📨
         </div>
 
           <div className="data-display-messages">

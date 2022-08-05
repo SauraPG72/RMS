@@ -10,14 +10,14 @@ export const Individual = (props) => {
 
 
     useEffect(() => {
-        setMessages([]);
+        
         emailMessages();
     }, [])
 
     
 
     const emailMessages = () => {
-        setMessages([]);
+        
         let messageIds = [... props.contact.most_recent_thread_ids]
         let messageArr = []
         for (const message of messageIds) {
@@ -37,10 +37,13 @@ export const Individual = (props) => {
 
     console.log(messages);
 
-   return (
-    messages.map((message, idx) => {
+   return (<div className="individual">
+    <div>{props.contact.last_contacted}</div>
+    {messages.map((message, idx) => {
         return <RecentMessages message={message} key={idx} />
-    })
+    })}
+   </div>
+    
    )
     
 
@@ -56,7 +59,7 @@ export const Individual = (props) => {
 }
 
 const RecentMessages = (props) => {
-    return <div>
+    return <div className="seperate">
         {props.message}
     </div>
 }

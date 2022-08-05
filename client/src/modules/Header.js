@@ -12,9 +12,19 @@ export const Header = () => {
             
         })
     }, [])
+
+    const logOut = () => {
+        axios.delete("/api/users")
+    }
     return (
-        <div>
-            <p>Welcome back {data}!</p>
+        <div className="header">
+            <div>
+                <h3>Welcome back {data}!</h3>
+            </div>
+            <div>
+                <h3 className="exit" onClick={logOut}>🤸‍♂️</h3>
+            </div>
+            
         </div>
     )
 }

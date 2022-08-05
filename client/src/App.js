@@ -88,8 +88,12 @@ function App() {
   else {
     return (
       <div className="App">
-        <LogInForm logInSubmit={logInSubmit}/>
-        <p>{err}</p>
+
+        <div className='log-in'>
+          <LogInForm logInSubmit={logInSubmit}/>
+          <p>{err}</p>
+        </div>
+        
       </div>
       
     )

@@ -11,7 +11,7 @@ export const ClickAbleContacts = (props) => {
 
     console.log(props);
 
-    return <div onClick={props.finalContactDisplay}>
+    return <div onClick={props.finalContactDisplay} className="contact-list">
         {props.organisation.name} 
         <div>
             {props.organisation.last_contacted}

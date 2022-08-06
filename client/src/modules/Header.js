@@ -7,7 +7,7 @@ export const Header = () => {
 
     useEffect(() => {
         axios.get('/api/users').then((response) => {
-            console.log(response)
+            
             setData(response.data.username)
             
         })

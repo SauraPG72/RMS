@@ -51,7 +51,9 @@ export const Inbox = () => {
 
     useEffect(() => {
         bearerRetrieve();
-    }, [])
+    }, []);
+
+    
 
 
     return (
@@ -83,7 +85,7 @@ export const Inbox = () => {
 
           <div className="data-display-messages">
             {individual ? <Individual contact={contact} bearer={bearer}/> : <div> </div>}
-            {/* <Individual contact={contact} bearer={bearer}/> */}
+            
           </div>
     </div> 
     )

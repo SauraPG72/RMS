@@ -12,6 +12,7 @@ import { LogInForm } from './modules/LogIn';
 
 import { Inbox } from './modules/DisplayInbox';
 
+import MyImage from './modules/TREKKA1.png'
 
 function App() {
   const [logIn, setLogin] = useState({
@@ -87,9 +88,10 @@ function App() {
 
   else {
     return (
-      <div className="App">
-
+      <div className="App LogIn">
+        
         <div className='log-in'>
+        <img src={MyImage} />
           <LogInForm logInSubmit={logInSubmit}/>
           <p>{err}</p>
         </div>

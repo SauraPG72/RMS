@@ -9,12 +9,15 @@ export const Individual = (props) => {
     const [messages, setMessages] = useState([])
 
 
-    useEffect(() => {
+    useEffect(  () => {
         
-        emailMessages();
+         emailMessages();
     }, [])
 
     
+
+    let shortened = props.contact.last_contacted.split(" ").slice(0, 3).join(" ")
+
 
     const emailMessages = () => {
         
@@ -38,7 +41,7 @@ export const Individual = (props) => {
     console.log(messages);
 
    return (<div className="individual">
-    <div>{props.contact.last_contacted}</div>
+    <h3>{shortened}</h3>
     {messages.map((message, idx) => {
         return <RecentMessages message={message} key={idx} />
     })}

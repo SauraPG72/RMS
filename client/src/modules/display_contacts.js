@@ -7,14 +7,15 @@ import { OrgCard } from './display_orgs';
 
 export const ClickAbleContacts = (props) => {
     
+    let shortened = props.organisation.last_contacted.split(" ").slice(0, 3).join(" ")
+    
 
-
-    console.log(props);
+    
 
     return <div onClick={props.finalContactDisplay} className="contact-list">
-        {props.organisation.name} 
+       <strong>{props.organisation.name} </strong> 
         <div>
-            {props.organisation.last_contacted}
+            {shortened}
         </div>
         
     </div>

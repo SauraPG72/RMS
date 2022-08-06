@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+
+import {About} from './App'
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  render(<About />);
+  const imgDiv = screen.getByTestId('custom-element2');
+  expect(imgDiv).toHaveAttribute('alt', 'logo')
+
 });

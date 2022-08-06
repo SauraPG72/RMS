@@ -6,6 +6,11 @@
 
 }
 
+.About {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
 
 .header {
   display: flex;

@@ -14,6 +14,8 @@ import { Inbox } from './modules/DisplayInbox';
 
 import MyImage from './modules/TREKKA1.png'
 
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+
 function App() {
   const [logIn, setLogin] = useState({
     user_id: "",
@@ -89,12 +91,22 @@ function App() {
   else {
     return (
       <div className="App LogIn">
-        
-        <div className='log-in'>
+        <BrowserRouter>
+        <Routes>
+        <Route path="/" element={<div className='log-in'>
         <img src={MyImage} />
           <LogInForm logInSubmit={logInSubmit}/>
           <p>{err}</p>
-        </div>
+        </div>} />
+        <Route path="/about" element={<About />}/>
+
+
+
+        </Routes>
+       
+        
+        </BrowserRouter>
+        
         
       </div>
       
@@ -102,6 +114,23 @@ function App() {
   }
   
 
+}
+
+export const About = () => {
+  return (
+    <div className='About'>
+      <img src={MyImage} link='/' data-testid="custom-element2" alt='logo'/>
+
+      <h1>What is Trekka!</h1>
+
+      <p>Trekka is the first of it's kind, email relationship management tool that interfaces directly with the Gmail API</p>
+      <p>It re - organises the traditional email inbox, and it helps the busy person of the 21st century, vanigate their emails by people, and conversation rather than the chronologically sorted threads of the traditional inbox</p>
+
+      <strong>Hope you enjoy it, and it saves you some time 😊 </strong>
+
+    </div>
+    
+  )
 }
 
 export default App;

@@ -27,7 +27,7 @@ export const LogInForm = (props) => {
           <input type="password" name="pw"/>
         </label>
             <div>
-                <button type="submit">Submit</button>
+                <button className="style-button" type="submit">Submit</button>
             </div>
       </form>
     );

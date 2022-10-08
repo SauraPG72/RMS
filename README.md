@@ -1,4 +1,4 @@
-# Project5
+# RMS2
 My final General Assembly project app. 
 
 # Stack used:
